@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".auth.CreateAccountActivity">
+
+    <Toolbar
+        android:id="@+id/toolbar_create_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:title="@string/create_account_activity_title"
+        android:subtitle="@string/create_account_activity_subtitle"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:gravity="center_horizontal">
+        <EditText
+            android:id="@+id/edittext_create_account_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:layout_marginTop="32dp"/>
+        <EditText
+            android:id="@+id/edittext_create_account_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="32dp"/>
+        <EditText
+            android:id="@+id/edittext_create_account_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:layout_marginTop="32dp"/>
+        <EditText
+            android:id="@+id/edittext_create_account_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:layout_marginTop="32dp"/>
+        <Button
+            android:id="@+id/button_create_account_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Account"
+            android:layout_marginTop="32dp"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/textview_create_account_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Already Have an account? Login"/>
+</LinearLayout>
