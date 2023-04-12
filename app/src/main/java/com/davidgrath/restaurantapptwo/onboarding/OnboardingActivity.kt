@@ -7,6 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.ViewModelProvider
+import com.davidgrath.restaurantapptwo.Constants
 import com.davidgrath.restaurantapptwo.R
 import com.davidgrath.restaurantapptwo.application.RestaurantAppTwo
 import com.davidgrath.restaurantapptwo.auth.CreateAccountActivity
@@ -59,7 +60,7 @@ class OnboardingActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun finishOnboarding() {
         preferences.edit()
-            .putBoolean(com.davidgrath.restaurantapptwo.Constants.PreferencesTitles.ONBOARDING_COMPLETED, true)
+            .putBoolean(Constants.PreferencesTitles.ONBOARDING_COMPLETED, true)
             .apply()
         if (viewModel.isLoggedIn()) {
             if(viewModel.isLocationSet()) {

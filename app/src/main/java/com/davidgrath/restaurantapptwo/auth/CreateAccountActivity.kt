@@ -99,6 +99,7 @@ class CreateAccountActivity : AppCompatActivity(), View.OnClickListener {
                     val loginIntent = Intent(this, LoginActivity::class.java)
                     loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(loginIntent)
+                    finish()
                 }
             }
         }

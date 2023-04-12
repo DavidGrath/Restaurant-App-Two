@@ -112,6 +112,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     val createAccountIntent = Intent(this, CreateAccountActivity::class.java)
                     createAccountIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(createAccountIntent)
+                    finish()
                 }
                 binding.textviewLoginForgotPassword -> {
                     val forgotPasswordIntent = Intent(this, ForgotPasswordActivity::class.java)

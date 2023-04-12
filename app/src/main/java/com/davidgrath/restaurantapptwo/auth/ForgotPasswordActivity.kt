@@ -11,6 +11,13 @@ class ForgotPasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
+        setSupportActionBar(binding.toolbarRestaurantDetails)
+        supportActionBar!!.title = null
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        binding.toolbarRestaurantDetails.setNavigationOnClickListener {
+            finish()
+        }
         setContentView(binding.root)
 
     }

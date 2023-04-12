@@ -20,11 +20,7 @@ class SplashScreenActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this,
             SplashScreenViewModelFactory((application as RestaurantAppTwo).getAuthUseCase())).get(SplashScreenViewModel::class.java)
         val preferences = getSharedPreferences(Constants.APPLICATION_NAME, MODE_PRIVATE)
-        startActivity(Intent(this, OtpVerificationActivity::class.java))
-        finish()
-        if(true) {
-            return
-        }
+
         val completedOnboarding = preferences.getBoolean(Constants.PreferencesTitles.ONBOARDING_COMPLETED, false)
 
         if (completedOnboarding) {

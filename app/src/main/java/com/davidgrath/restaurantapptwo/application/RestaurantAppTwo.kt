@@ -1,7 +1,9 @@
 package com.davidgrath.restaurantapptwo.application
 
 import android.app.Application
+import com.davidgrath.restaurantapptwo.Constants
 import com.davidgrath.restaurantapptwo.auth.AuthRepository
+import com.davidgrath.restaurantapptwo.auth.AuthStorageHelperImpl
 import com.davidgrath.restaurantapptwo.auth.AuthUseCase
 import com.davidgrath.restaurantapptwo.cart.CartRepository
 import com.davidgrath.restaurantapptwo.cart.CartUseCase
@@ -26,10 +28,12 @@ class RestaurantAppTwo : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        val storageHelper = com.davidgrath.restaurantapptwo.auth.AuthStorageHelperImpl(this)
+        val storageHelper = AuthStorageHelperImpl(this)
         authRepository =
             AuthRepository(networkClient, storageHelper)
         locationHelper = LocationHelperImpl(this)
+        val preferences = getSharedPreferences(Constants.APPLICATION_NAME, MODE_PRIVATE)
+        preferences.edit().clear().commit()
     }
 
     fun getCartUseCase() : CartUseCase {
