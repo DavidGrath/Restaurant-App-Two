@@ -5,6 +5,7 @@
     android:id="@+id/frame_layout_location_select"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".onboarding.LocationSelectActivity">
+    android:theme="@style/Theme.RestaurantAppTwo.WhiteToolbarActivity"
+    tools:context=".location.LocationSelectActivity">
 
 </FrameLayout>

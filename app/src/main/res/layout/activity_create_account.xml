@@ -1,63 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".auth.CreateAccountActivity">
-
-    <Toolbar
-        android:id="@+id/toolbar_create_account"
+<layout>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="createAccountForm"
+            type="com.davidgrath.restaurantapptwo.auth.entities.ui.CreateAccountFormUI" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:title="@string/create_account_activity_title"
-        android:subtitle="@string/create_account_activity_subtitle"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="32dp"
-        android:gravity="center_horizontal">
-        <EditText
-            android:id="@+id/edittext_create_account_full_name"
+        android:fitsSystemWindows="true"
+        android:theme="@style/LoginCreateAccountTheme"
+        android:background="@android:color/darker_gray"
+        tools:context=".auth.CreateAccountActivity">
+<!--        Long story. I found out how to make a transparent status bar here
+https://stackoverflow.com/a/57979294/7876958 but for some reason the padding of the root LinearLayout got removed,
+so I simply nested it as a workaround. Update: added a ScrollView-->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:animateLayoutChanges="true"
+            android:padding="32dp"
+            android:gravity="center_horizontal">
+
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:layout_marginTop="32dp"/>
-        <EditText
-            android:id="@+id/edittext_create_account_email"
+            style="@style/ToolbarTextStyle"
+            android:textColor="@color/white"
+            android:text="@string/create_account_activity_title"
+            android:layout_marginTop="@dimen/space_size_4"/>
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:layout_marginTop="32dp"/>
-        <EditText
-            android:id="@+id/edittext_create_account_password"
+            style="@style/TextContent"
+            android:textColor="@color/white"
+            android:text="@string/create_account_activity_subtitle"/>
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:layout_marginTop="32dp"/>
-        <EditText
-            android:id="@+id/edittext_create_account_confirm_password"
+            android:hint="Full Name"
+            app:boxBackgroundColor="@null"
+            android:layout_marginTop="32dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edittext_create_account_full_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:text="@={createAccountForm.fullName}"
+                android:background="@android:color/transparent"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:layout_marginTop="32dp"/>
+            android:hint="Enter your email"
+            app:boxBackgroundColor="@null"
+            android:layout_marginTop="32dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edittext_create_account_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+                android:text="@={createAccountForm.email}"
+                android:background="@android:color/transparent"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@null"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/white"
+            android:hint="Password"
+            android:layout_marginTop="32dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edittext_create_account_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:text="@={createAccountForm.password}"
+                android:background="@android:color/transparent"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/white"
+            app:boxBackgroundColor="@null"
+            android:hint="Confirm Password"
+            android:layout_marginTop="32dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edittext_create_account_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:text="@={createAccountForm.passwordConfirm}"
+                android:background="@android:color/transparent" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="@{createAccountForm.error != null ? View.VISIBLE : View.GONE}"
+            android:text="@{createAccountForm.error ?? ``}"
+            android:textColor="#FF0000"/>
         <Button
             android:id="@+id/button_create_account_create"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Create Account"
-            android:layout_marginTop="32dp"/>
+            android:layout_marginTop="32dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/space_size_4">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextContent"
+                    android:textColor="@color/white"
+                    android:text="Already Have an account?"/>
+        <TextView
+            android:id="@+id/textview_create_account_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_size_2"
+            style="@style/TextContent"
+            android:textColor="?attr/colorPrimary"
+            android:text="Login" />
+            </LinearLayout>
+        </LinearLayout>
+        </ScrollView>
     </LinearLayout>
-    <TextView
-        android:id="@+id/textview_create_account_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Already Have an account? Login"/>
-</LinearLayout>
+</layout>

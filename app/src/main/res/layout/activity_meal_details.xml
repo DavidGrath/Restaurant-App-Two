@@ -1,42 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context=".meals.MealDetailsActivity">
-    <Toolbar
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_meal_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_expanded_height"
+        app:expandedTitleTextAppearance="@style/ToolbarTextStyle"
+        app:collapsedTitleTextAppearance="@style/ToolbarTextStyle"
+        app:contentScrim="?attr/colorPrimary"
+        app:statusBarScrim="?attr/colorPrimary"
+        app:maxLines="3"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+        <ImageView
+            android:id="@+id/imageview_meal_details_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/simple_image_placeholder"
+            android:fitsSystemWindows="true"
+            app:layout_collapseMode="parallax" />
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_meal_details"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"/>
-    <ScrollView
+        android:layout_height="?attr/actionBarSize"
+        app:layout_collapseMode="pin"
+        android:background="@android:color/transparent"
+        app:title="Pain"/>
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="@dimen/space_size_3">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/meal_details_activity_description_title"/>
+            android:text="@string/meal_details_activity_description_title"
+            style="@style/TextTitleSmaller"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
         <TextView
             android:id="@+id/textview_meal_details_description_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lorem Ipsum Dolor Amet Blah Blah Blah"
+            android:text="@string/lorem_ipsum"
+            style="@style/TextContent"
             android:layout_marginTop="8dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/meal_details_activity_extras_title"
+            style="@style/TextTitleSmaller"
             android:layout_marginTop="16dp"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listview_meal_details_extras"
@@ -49,6 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/meal_details_activity_quantity_title"
+            style="@style/TextTitleSmaller"
             android:layout_marginTop="16dp"/>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -58,27 +94,47 @@
                 android:id="@+id/textview_meal_details_quantity_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
-                android:layout_alignParentStart="true"/>
-            <Button
+                android:text="1 item"
+                android:textColor="@color/black"
+                style="@style/TextContent"
+                android:textStyle="bold"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+            <ImageView
                 android:id="@+id/button_meal_details_reduce_quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-"
-                android:layout_toStartOf="@id/button_meal_details_add_quantity"/>
-            <Button
+                android:src="@drawable/ic_baseline_remove_24"
+                android:background="@drawable/meal_details_remove_button_background"
+                app:tint="?attr/colorPrimary"
+                android:layout_toStartOf="@id/button_meal_details_add_quantity"
+                android:padding="4dp"/>
+            <ImageView
                 android:id="@+id/button_meal_details_add_quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+"
-                android:layout_alignParentEnd="true"/>
+                android:src="@drawable/ic_baseline_add_24"
+                android:background="@drawable/meal_details_add_button_background"
+                app:tint="@color/white"
+                android:layout_alignParentEnd="true"
+                android:padding="4dp"/>
         </RelativeLayout>
     </LinearLayout>
-    </ScrollView>
-    <Button
+        <TextView
+            android:id="@+id/textview_meal_details_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextTitleSmaller"
+            tools:text="\u20a62300"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/space_size_3"/>
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_meal_details_add_to_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/meal_details_activity_add_to_order_title"
+        app:cornerRadius="6dp"
         android:layout_margin="16dp"/>
-</LinearLayout>
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

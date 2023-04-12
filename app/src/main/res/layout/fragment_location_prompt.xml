@@ -3,26 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="32dp"
-    tools:context=".onboarding.LocationPromptFragment">
+    tools:context=".location.LocationPromptFragment">
 <!--    Vector asset from unDraw.co-->
     <ImageView
-        android:layout_width="136dp"
-        android:layout_height="136dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
         android:src="@drawable/ic_undraw_my_location_re_r52x"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/location_prompt_fragment_title"
+        style="@style/TextTitle"
         android:layout_marginTop="16dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/location_prompt_fragment_instructions"
+        style="@style/TextContent"
         android:layout_marginTop="16dp"/>
     <Button
         android:id="@+id/button_location_prompt_use_current_location"
@@ -30,6 +33,10 @@
         android:layout_height="wrap_content"
         android:text="@string/location_prompt_fragment_button_current_location_title"
         android:drawableStart="@drawable/ic_baseline_near_me_24"
+        app:strokeWidth="2dp"
+        app:strokeColor="?attr/colorPrimary"
+        android:backgroundTint="@color/white"
+        android:textColor="?attr/colorPrimary"
         android:layout_marginTop="24dp"/>
     <TextView
         android:id="@+id/textview_location_prompt_manual_select"
@@ -37,5 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/location_prompt_fragment_select_manually_prompt"
+        style="@style/TextContent"
+        android:textColor="@color/black"
         android:layout_marginTop="24dp"/>
 </LinearLayout>

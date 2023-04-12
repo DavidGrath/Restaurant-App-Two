@@ -1,4 +1,5 @@
 <resources>
+    <string name="mapbox_access_token">pk.eyJ1IjoiZGF2aWRncmF0aCIsImEiOiJjbDBjZHBqYWcwYXhnM2JvbXZvN2I4bmV3In0.I-EEsxBWCBqOpgZ5-mYYyg</string>
     <string name="app_name">Restaurant App Two</string>
     <string name="login_activity_title">Welcome back</string>
     <string name="login_activity_subtitle">Sign in to Continue</string>
@@ -45,7 +46,7 @@
     <string name="profile_fragment_settings_title">Settings</string>
     <string name="profile_fragment_terms_of_use_title">Terms of use</string>
     <string name="profile_fragment_privacy_policy_title">Privacy policy</string>
-    <string name="location_prompt_fragment_select_manually_prompt">Select it manually</string>
+    <string name="location_prompt_fragment_select_manually_prompt"><u>Select it manually</u></string>
     <string name="location_prompt_fragment_title">Hi, nice to meet you!</string>
     <string name="location_prompt_fragment_instructions">Choose your location to start finding restaurants around you</string>
     <string name="location_prompt_fragment_button_current_location_title">Use current location</string>
@@ -58,7 +59,7 @@
     <string name="onboarding_fragment_choose_dish_title">Choose A Tasty Dish</string>
     <string name="onboarding_fragment_delivery_title">Pick Up Your Delivery</string>
     <string name="onboarding_fragment_delivery_description">We make food ordering fast, simple, and free - no matter if you order online or cash</string>
-    <string name="onboarding_next_prompt">Next</string>
+    <string name="onboarding_next_prompt">Next \u00BB</string>
     <string name="bottom_nav_main_home_title">Home</string>
     <string name="bottom_nav_main_discover_title">Discover</string>
     <string name="bottom_nav_main_cart_title">Cart</string>
@@ -70,4 +71,7 @@
     <string name="meal_details_activity_extras_title">Extras</string>
     <string name="meal_details_activity_quantity_title">Quantity</string>
     <string name="home_search_fragment_empty_error_prompt">No results. Please refine your search</string>
+    <string name="checkout_activity_card_number_title">Card Number</string>
+    <string name="location_list_fragment_empty_error_text">No results. Please refine your search</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan purus ut placerat lobortis. Donec magna dolor, vulputate et orci ac, ultrices egestas quam. Mauris libero nisi, porta accumsan lorem eget, commodo venenatis tortor. In mattis sapien a eros sodales bibendum. Quisque eleifend dui sed luctus interdum. Curabitur feugiat vehicula quam, et semper ipsum finibus quis. Vestibulum viverra sed augue eu lacinia. Donec egestas lacus quis quam venenatis lacinia. Nulla ut mi eu ante euismod imperdiet quis id lacus. Donec vitae ullamcorper orci. Suspendisse commodo tellus ipsum, quis lobortis ipsum tempus at. Nam a ultrices sapien. Sed maximus lorem vitae nibh volutpat, sit amet laoreet augue elementum. Integer suscipit odio sed dui condimentum mattis. Sed sollicitudin hendrerit nunc vel tempor.</string>
 </resources>

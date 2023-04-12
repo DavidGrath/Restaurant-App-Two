@@ -6,21 +6,25 @@
     android:orientation="vertical"
     android:gravity="center"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".onboarding.OnboardingFragmentDiscover">
+    tools:context=".onboarding.OnboardingFragmentDiscover"
+    android:padding="@dimen/space_size_3">
     <ImageView
-        android:layout_width="136dp"
-        android:layout_height="136dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
         android:src="@drawable/ic_undraw_adventure_map_hnin"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        style="@style/TextLargeTitle"
         android:text="@string/onboarding_fragment_discover_title"
         android:layout_marginTop="32dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        style="@style/TextContent"
+        android:textColor="@color/black"
         android:text="@string/onboarding_fragment_discover_description"
         android:layout_marginTop="16dp"/>
 </LinearLayout>

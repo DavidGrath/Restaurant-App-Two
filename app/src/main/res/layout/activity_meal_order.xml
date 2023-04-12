@@ -6,27 +6,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".meals.MealOrderActivity">
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_meal_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        android:title="@string/meal_order_activity_title" />
+        app:title="@string/meal_order_activity_title" />
     <TextView
         android:id="@+id/textview_meal_order_meal_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/TextTitle"
         android:text="Crispy Chicken San"
         android:layout_margin="16dp"/>
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -47,12 +45,15 @@
                         android:id="@+id/textview_meal_order_subtotal_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        style="@style/TextContent"
+                        android:textColor="@color/black"
                         android:text="@string/meal_order_activity_subtotal_title"
                         android:layout_alignParentStart="true"/>
                     <TextView
                         android:id="@+id/textview_meal_order_subtotal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        style="@style/TextContent"
                         android:text="\u20a61500.00"
                         android:layout_alignParentEnd="true"/>
                 </RelativeLayout>
@@ -64,12 +65,15 @@
                         android:id="@+id/textview_meal_order_delivery_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        style="@style/TextContent"
+                        android:textColor="@color/black"
                         android:text="@string/meal_order_activity_delivery_title"
                         android:layout_alignParentStart="true"/>
                     <TextView
                         android:id="@+id/textview_meal_order_delivery"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        style="@style/TextContent"
                         android:text="Free"
                         android:layout_alignParentEnd="true"/>
                 </RelativeLayout>
@@ -82,18 +86,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/meal_order_activity_total_title"
-                        android:textSize="24sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
+                        style="@style/TextTitle"
                         android:layout_alignParentStart="true"/>
                     <TextView
                         android:id="@+id/textview_meal_order_total"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="\u20a61500.00"
-                        android:textSize="24sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
+                        style="@style/TextTitle"
                         android:layout_alignParentEnd="true"/>
                 </RelativeLayout>
             </LinearLayout>
@@ -110,10 +110,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_meal_order"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/recyclerview_cart_item"/>
         </androidx.cardview.widget.CardView>
     </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
     <Button
         android:id="@+id/button_meal_order_checkout"
         android:layout_width="match_parent"

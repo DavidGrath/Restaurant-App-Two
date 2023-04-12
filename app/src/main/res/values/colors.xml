@@ -8,4 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="pale_green">#D6DB46</color>
+    <color name="grey">#666658</color>
+    <color name="gold">#FFD700</color>
+    <color name="copied_fb_blue">#1877F2</color>
+    <color name="light_grey">#EFEFEF</color>
+    <color name="red">#FF0000</color>
 </resources>

@@ -5,14 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
-    android:layout_margin="8dp">
+    android:layout_margin="@dimen/space_size_3">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/imageview_latest_feed_picture"
         android:layout_width="match_parent"
-        android:layout_height="192dp"
+        android:layout_height="136dp"
         android:src="@drawable/simple_image_placeholder"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -20,6 +20,7 @@
             android:id="@+id/textview_latest_feed_restaurant_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextTitleSmaller"
             android:text="Somolu Finest Chao!"
             app:layout_constraintTop_toBottomOf="@id/imageview_latest_feed_picture"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +30,7 @@
             android:id="@+id/textview_latest_feed_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextContent"
             android:text="21 Demola Street Shomolu Lagos"
             app:layout_constraintTop_toBottomOf="@id/textview_latest_feed_restaurant_title"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,9 +49,10 @@
             android:id="@+id/textview_latest_feed_open_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextContent"
             android:text="Open 8:00 AM"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="16dp" />
+            android:layout_margin="@dimen/space_size_3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

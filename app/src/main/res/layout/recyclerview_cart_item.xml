@@ -3,28 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp"
+    android:padding="@dimen/space_size_2"
     xmlns:tools="http://schemas.android.com/tools">
     <ImageView
         android:id="@+id/imageview_cart_item_picture"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center_vertical"
-        android:src="@drawable/simple_image_placeholder"
-        android:scaleType="centerCrop"/>
+        android:src="@drawable/simple_image_placeholder" />
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:layout_marginStart="8dp">
+        android:layout_marginStart="@dimen/space_size_3">
         <TextView
             android:id="@+id/cart_item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/black"
+            style="@style/TextTitle"
             android:lines="1"
             android:ellipsize="end"
             tools:text="Crispy Chicken San"/>
@@ -33,15 +30,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:lines="1"
+            style="@style/TextContent"
             android:ellipsize="end"
             tools:text="2x tuna sahimi, 3x vegetables, 1x noodles"/>
         <TextView
             android:id="@+id/cart_item_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextTitle"
             android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="#FFFF00"
+            android:textColor="?attr/colorPrimary"
             android:lines="1"
             android:ellipsize="end"
             tools:text="\u20a61500.00"/>

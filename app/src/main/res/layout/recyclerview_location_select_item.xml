@@ -6,7 +6,8 @@
         android:id="@+id/textview_location_select_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/TextContent"
+        android:textColor="@color/black"
         android:text="Alimosho"
-        android:layout_margin="8dp"
-        />
+        android:layout_margin="@dimen/space_size_2" />
 </LinearLayout>

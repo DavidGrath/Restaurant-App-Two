@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="app_bar_expanded_height">256dp</dimen>
+    <dimen name="font_size_large_heading">56sp</dimen>
+    <dimen name="font_size_heading">36sp</dimen>
+    <dimen name="font_size_sub_heading">24sp</dimen>
+    <dimen name="font_size_paragraph">18sp</dimen>
+    <dimen name="font_size_semi_paragraph">16sp</dimen>
+    <dimen name="space_size_1">4dp</dimen>
+    <dimen name="space_size_2">8dp</dimen>
+    <dimen name="space_size_3">16dp</dimen>
+    <dimen name="space_size_4">32dp</dimen>
+    <dimen name="space_size_5">40dp</dimen>
 </resources>

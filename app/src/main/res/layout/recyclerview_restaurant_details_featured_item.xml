@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="400dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/space_size_3">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,7 +13,7 @@
         <ImageView
             android:id="@+id/imageview_restaurant_details_featured_item_picture"
             android:layout_width="match_parent"
-            android:layout_height="136dp"
+            android:layout_height="200dp"
             android:src="@drawable/simple_image_placeholder"
             android:scaleType="centerCrop"/>
     </androidx.cardview.widget.CardView>
@@ -20,16 +21,19 @@
         android:id="@+id/textview_restaurant_details_featured_item_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp"
+        style="@style/TextTitle"
         android:text="Mama Put Chicken Sandwich"
         android:ellipsize="end"
-        android:lines="1"/>
+        android:lines="1"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"/>
     <TextView
         android:id="@+id/textview_restaurant_details_featured_item_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/TextContent"
+        android:textStyle="bold"
         android:text="\u20a62500.00"
         android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp"/>
+        android:layout_marginEnd="16dp"/>
 </LinearLayout>

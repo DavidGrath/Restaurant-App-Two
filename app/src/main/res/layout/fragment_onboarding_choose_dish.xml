@@ -6,21 +6,25 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".onboarding.OnboardingFragmentChooseDish">
+    tools:context=".onboarding.OnboardingFragmentChooseDish"
+    android:padding="@dimen/space_size_3">
     <ImageView
-        android:layout_width="136dp"
-        android:layout_height="136dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
         android:src="@drawable/ic_undraw_healthy_options_sdo3"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        style="@style/TextLargeTitle"
         android:text="@string/onboarding_fragment_choose_dish_title"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="32dp" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        style="@style/TextContent"
+        android:textColor="@color/black"
         android:text="@string/onboarding_fragment_choose_dish_description"
         android:layout_marginTop="16dp"/>
 </LinearLayout>

@@ -2,16 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_marginVertical="@dimen/space_size_3">
     <TextView
         android:id="@+id/textview_meal_details_extras_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/TextContent"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:text="Sauce"/>
     <TextView
         android:id="@+id/textview_meal_details_extras_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="\u20a6150.00"
+        style="@style/TextContent"
         android:layout_marginStart="16dp"/>
 </LinearLayout>

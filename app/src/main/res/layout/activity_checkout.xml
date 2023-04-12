@@ -1,96 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".cart.CheckoutActivity">
-    <Toolbar
-        android:id="@+id/toolbar_checkout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:title="@string/checkout_activity_title" />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="checkoutForm"
+            type="com.davidgrath.restaurantapptwo.cart.entities.ui.CheckoutFormUI" />
+        <import type="android.view.View" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="144dp"
-            android:background="#123456"
-            android:gravity="fill"
-            android:text="Placeholder Credit Card"
-            android:textSize="40sp" />
-        <TextView
-            android:id="@+id/textview_checkout_address_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/checkout_activity_delivery_address_title"
-            android:layout_marginTop="16dp"/>
-    <EditText
-        android:id="@+id/edittext_checkout_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"/>
+        android:theme="@style/Theme.RestaurantAppTwo.WhiteToolbarActivity"
+        tools:context=".cart.CheckoutActivity">
 
-        <TextView
-            android:id="@+id/textview_checkout_card_holder_label"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_checkout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/checkout_activity_card_holder_title"
-            android:layout_marginTop="16dp"/>
-    <EditText
-        android:id="@+id/edittext_checkout_card_holder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:layout_marginTop="16dp"/>
-        <TextView
-            android:id="@+id/textview_checkout_expiry_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/checkout_activity_expiry_date_title"
-            android:layout_marginTop="16dp"/>
-    <EditText
-        android:id="@+id/edittext_checkout_expiry_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"/>
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:title="@string/checkout_activity_title" />
 
-        <TextView
-            android:id="@+id/textview_checkout_cvv_label"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/checkout_activity_cvv_title"
-            android:layout_marginTop="16dp"/>
-        <EditText
-        android:id="@+id/edittext_checkout_cvv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberPassword"
-        android:maxLength="3"
-            android:layout_marginTop="16dp"/>
-        <CheckBox
-            android:id="@+id/checkbox_checkout_save_card"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="192dp"
+                    android:src="@drawable/ic_undraw_credit_card_re_blml"
+                    android:gravity="fill"
+                    android:text="Placeholder Credit Card"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/textview_checkout_address_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkout_activity_delivery_address_title"
+                    style="@style/TextTitleSmaller"
+                    android:textAllCaps="true"
+                    android:layout_marginTop="16dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxStrokeColor="?attr/colorPrimary"
+                    android:hint="Address #1"
+                    android:layout_marginTop="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edittext_checkout_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={checkoutForm.deliveryAddress}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/textview_checkout_card_number_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkout_activity_card_number_title"
+                    style="@style/TextTitleSmaller"
+                    android:textAllCaps="true"
+                    android:layout_marginTop="16dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxStrokeColor="?attr/colorPrimary"
+                    android:layout_marginTop="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edittext_checkout_card_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="16"
+                    android:text="@={checkoutForm.cardNumber}" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/textview_checkout_card_holder_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TextTitleSmaller"
+                    android:textAllCaps="true"
+                    android:text="@string/checkout_activity_card_holder_title"
+                    android:layout_marginTop="16dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxStrokeColor="?attr/colorPrimary"
+                    android:layout_marginTop="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edittext_checkout_card_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="@={checkoutForm.cardHolderName}" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/textview_checkout_expiry_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TextTitleSmaller"
+                    android:textAllCaps="true"
+                    android:text="@string/checkout_activity_expiry_date_title"
+                    android:layout_marginTop="16dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxStrokeColor="?attr/colorPrimary"
+                    android:layout_marginTop="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edittext_checkout_expiry_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={checkoutForm.expiryDate}" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/textview_checkout_cvv_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TextTitleSmaller"
+                    android:textAllCaps="true"
+                    android:text="@string/checkout_activity_cvv_title"
+                    android:layout_marginTop="16dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxStrokeColor="?attr/colorPrimary"
+                    android:layout_marginTop="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edittext_checkout_cvv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberPassword"
+                    android:maxLength="3"
+                    android:text="@={checkoutForm.cvv}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <CheckBox
+                    android:id="@+id/checkbox_checkout_save_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkout_activity_save_card_text"
+                    android:checked="@={checkoutForm.saveCard}"
+                    android:layout_marginTop="16dp" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/checkout_activity_save_card_text"
-            android:layout_marginTop="16dp"/>
+            android:orientation="vertical"
+            android:animateLayoutChanges="true"
+            android:padding="16dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{checkoutForm.error ?? ``}"
+                android:textColor="#FF0000"
+                android:visibility="@{checkoutForm.error != null ? View.VISIBLE : View.GONE}"
+                android:layout_marginTop="16dp"/>
+        <Button
+            android:id="@+id/button_checkout_checkout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Checkout"
+            android:layout_marginTop="16dp" />
+        </LinearLayout>
     </LinearLayout>
-    </ScrollView>
-    <Button
-        android:id="@+id/button_checkout_checkout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Checkout"
-        android:layout_margin="16dp"/>
-</LinearLayout>
+</layout>

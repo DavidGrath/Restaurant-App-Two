@@ -6,17 +6,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".meals.TrendingActivity">
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_trending"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:title="@string/trending_activity_title"/>
+        app:title="@string/trending_activity_title"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_trending"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="visible"
         android:layout_margin="16dp"/>
+    <ProgressBar
+        android:id="@+id/progress_bar_trending"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
 </LinearLayout>

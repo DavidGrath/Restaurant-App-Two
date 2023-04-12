@@ -2,12 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginVertical="@dimen/space_size_3"
+    android:layout_marginHorizontal="@dimen/space_size_2">
     <TextView
         android:id="@+id/textview_restaurant_details_menu_item_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        style="@style/TextTitleSmaller"
         android:lines="1"
         android:ellipsize="end"
         android:text="Popular Items"/>
@@ -15,6 +19,7 @@
         android:id="@+id/textview_restaurant_details_menu_item_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/TextContent"
         android:text="10"/>
     <ImageView
         android:id="@+id/imageview_restaurant_details_menu_item_more"

@@ -7,52 +7,94 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="@dimen/space_size_4">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_size_3">
             <TextView
                 android:id="@+id/textview_home_trending_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Trending this week"
+                style="@style/TextTitle"
                 android:layout_alignParentStart="true"/>
             <TextView
                 android:id="@+id/textview_home_trending_view_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View all"
-                android:layout_alignParentEnd="true"/>
+                style="@style/TextContent"
+                android:text="View all \u00BB"
+                android:textColor="?attr/colorPrimary"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
         </RelativeLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_home_trending"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:visibility="visible"/>
+        <ProgressBar
+            android:id="@+id/progress_bar_home_trending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginVertical="32dp"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_size_3"
+            android:layout_marginHorizontal="@dimen/space_size_3">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/TextTitle"
                 android:text="Most popular"
                 android:layout_alignParentStart="true"/>
-            <!--            TODO Add character that looks like >> -->
             <TextView
                 android:id="@+id/textview_home_popular_view_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="20 places"
-                android:layout_alignParentEnd="true"/>
+                style="@style/TextContent"
+                android:text="20 places \u00BB"
+                android:textColor="?attr/colorPrimary"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
         </RelativeLayout>
-        <include layout="@layout/recyclerview_popular_restaurant" android:id="@+id/include_home_most_popular"/>
+        <include layout="@layout/recyclerview_popular_restaurant" android:id="@+id/include_home_most_popular"
+            android:visibility="visible"/>
+        <ProgressBar
+            android:id="@+id/progress_bar_home_most_popular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginVertical="32dp"/>
+        <TextView
+            android:id="@+id/textview_home_popular_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_margin="16dp"/>
         <TextView
             android:id="@+id/textview_home_latest_feeds_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Latest Feeds"/>
+            style="@style/TextTitle"
+            android:text="Latest Feeds"
+            android:layout_marginTop="@dimen/space_size_3"
+            android:layout_marginBottom="@dimen/space_size_2"
+            android:layout_marginHorizontal="@dimen/space_size_3"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_home_feed"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:visibility="visible" />
+        <ProgressBar
+            android:id="@+id/progress_bar_home_latest_feed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginVertical="32dp"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

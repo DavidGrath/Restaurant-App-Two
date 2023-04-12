@@ -5,30 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:theme="@style/Theme.RestaurantAppTwo.WhiteToolbarActivity"
     tools:context=".restaurants.RestaurantDetailsActivity">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary">
-        <Toolbar
+        android:background="@color/white">
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_restaurant_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            android:title="Ajegunle Finest Chao!"/>
+            android:background="@color/white"
+            android:elevation="0dp"
+            app:title="Ajegunle Finest Chao!"/>
         <TextView
             android:id="@+id/textview_restaurant_details_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/TextContent"
             android:text="39 Mba Street Ajegunle Apapa"
-            android:layout_margin="8dp"/>
+            android:layout_margin="@dimen/space_size_2"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/space_size_2">
         <RatingBar
             android:id="@+id/rating_bar_restaurant_details_rating"
             android:layout_width="wrap_content"
@@ -39,13 +41,15 @@
                 android:id="@+id/textview_restaurant_details_review_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/TextContent"
                 android:text="(245 reviews)"
                 android:layout_marginStart="16dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/space_size_2">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,11 +58,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/TextTitleSmaller"
                     android:text="@string/restaurant_details_activity_delivery_price_title"/>
                 <TextView
                     android:id="@+id/textview_restaurant_details_delivery_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/TextContent"
                     android:text="Free"/>
             </LinearLayout>
             <LinearLayout
@@ -69,44 +75,61 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/TextTitleSmaller"
                     android:text="@string/restaurant_details_activity_open_time_title"/>
                 <TextView
                     android:id="@+id/textview_restaurant_details_open_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/TextContent"
                     android:text="8:00 AM"/>
             </LinearLayout>
         </LinearLayout>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_size_2">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:gravity="center_vertical">
+                android:layout_centerVertical="true">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/simple_color_background"
+                    android:backgroundTint="@color/light_grey"
+                    android:padding="@dimen/space_size_1"
+                    app:tint="@color/black"
                     android:src="@drawable/ic_baseline_upgrade_24"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/simple_color_background"
+                    android:backgroundTint="@color/light_grey"
+                    android:padding="@dimen/space_size_1"
+                    app:tint="@color/black"
                     android:src="@drawable/ic_baseline_star_outline_24"
                     android:layout_marginStart="16dp"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/simple_color_background"
+                    android:backgroundTint="@color/light_grey"
+                    android:padding="@dimen/space_size_1"
+                    app:tint="@color/black"
                     android:src="@drawable/ic_outline_location_on_24"
                     android:layout_marginStart="16dp"/>
             </LinearLayout>
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/ButtonStyle.OutlinedButton"
                 android:text="Contact"
+                android:textStyle="bold"
+                app:cornerRadius="24dp"
+                android:paddingVertical="@dimen/space_size_1"
+                android:paddingHorizontal="24dp"
                 android:layout_alignParentEnd="true" />
         </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -121,38 +144,50 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/restaurant_details_activity_featured_items_title"/>
+                style="@style/TextTitleSmaller"
+                android:textAllCaps="true"
+                android:text="@string/restaurant_details_activity_featured_items_title"
+                android:layout_margin="@dimen/space_size_2"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_restaurant_details_featured"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_size_2">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/TextTitleSmaller"
+                android:textAllCaps="true"
                 android:text="@string/restaurant_details_activity_menu_title"
                 android:layout_alignParentStart="true" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="View all"
+                    style="@style/TextContent"
+                    android:textColor="?attr/colorPrimary"
+                    android:text="View all \u00BB"
                     android:layout_alignParentEnd="true"/>
             </RelativeLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_restaurant_details_menu"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/recyclerview_restaurant_details_menu"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/TextTitleSmaller"
+                android:textAllCaps="true"
                 android:text="@string/restaurant_details_activity_reviews_title"
-                android:layout_marginTop="16dp"/>
+                android:layout_margin="@dimen/space_size_2"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_restaurant_details_reviews"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/recyclerview_restaurant_details_review"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

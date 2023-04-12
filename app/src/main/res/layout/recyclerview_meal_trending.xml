@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="8dp"
+    android:layout_margin="@dimen/space_size_3"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp">
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +25,7 @@
             android:src="@drawable/ic_baseline_star_outline_24"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_margin="16dp"/>
+            android:layout_margin="@dimen/space_size_3"/>
         <TextView
             android:id="@+id/textview_meal_trending_restaurant_name"
             android:layout_width="wrap_content"
@@ -33,11 +33,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageview_meal_trending_picture"
             android:text="Ajegunle Finest Chao!"
+            style="@style/TextTitleSmaller"
+            android:layout_marginTop="@dimen/space_size_3"
             android:layout_marginStart="16dp"/>
         <TextView
             android:id="@+id/textview_meal_trending_meal_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextContent"
             app:layout_constraintStart_toStartOf="@id/textview_meal_trending_restaurant_name"
             app:layout_constraintTop_toBottomOf="@id/textview_meal_trending_restaurant_name"
             android:layout_marginTop="8dp"
@@ -55,6 +58,7 @@
             android:id="@+id/textview_meal_trending_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextTitleSmaller"
             android:text="\u20a6400.00"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

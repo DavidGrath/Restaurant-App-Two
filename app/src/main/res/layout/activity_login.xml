@@ -1,63 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="loginForm"
+            type="com.davidgrath.restaurantapptwo.auth.entities.ui.LoginFormUI" />
+        <import type="android.view.View"/>
+    </data>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".auth.LoginActivity">
-    <Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:title="@string/login_activity_title"
-        android:subtitle="@string/login_activity_subtitle"
-        android:theme="?attr/actionBarTheme"
-        />
+    android:background="@android:color/darker_gray"
+    android:theme="@style/LoginCreateAccountTheme"
+    tools:context=".auth.LoginActivity"
+    android:animateLayoutChanges="true">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:paddingHorizontal="24dp"
-        android:layout_marginTop="64dp">
-        <EditText
+        android:padding="32dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ToolbarTextStyle"
+        android:textColor="@color/white"
+        android:text="@string/login_activity_title"
+        android:layout_marginTop="@dimen/space_size_4"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextContent"
+        android:textColor="@color/white"
+        android:text="@string/login_activity_subtitle"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@null"
+            android:hint="User name"
+            android:layout_marginTop="32dp">
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_login_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:layout_marginTop="32dp"/>
-        <EditText
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:text="@={loginForm.username}"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@null"
+            android:hint="Password"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/white"
+            android:layout_marginTop="32dp">
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:layout_marginTop="32dp"/>
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:text="@={loginForm.password}" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{loginForm.error != null ? View.VISIBLE : View.GONE}"
+            android:text="@{loginForm.error ?? ``}"
+            android:textColor="#FF0000"
+            android:layout_marginTop="16dp"/>
         <Button
             android:id="@+id/button_login_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sign in"
             android:layout_marginTop="40dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_f_logo_rgb_blue_1024"/>
         <Button
             android:id="@+id/button_login_facebook_connect"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Connect with Facebook"
-            android:layout_marginTop="16dp"/>
+            android:backgroundTint="@color/copied_fb_blue"
+            android:layout_marginStart="@dimen/space_size_3"/>
+        </LinearLayout>
         <TextView
             android:id="@+id/textview_login_forgot_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextContent"
+            android:textColor="@color/white"
             android:text="@string/login_activity_forgot_password_prompt"
             android:layout_marginTop="16dp"/>
     </LinearLayout>
-    <TextView
-        android:id="@+id/textview_login_create_account"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:text="Don\'t have an account? Sign up"/>
+        android:layout_marginBottom="@dimen/space_size_4">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/TextContent"
+        android:textColor="@color/white"
+        android:text="Don\'t have an account?" />
+        <TextView
+            android:id="@+id/textview_login_create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextContent"
+            android:textColor="?attr/colorPrimary"
+            android:text="Sign up"
+            android:layout_marginStart="@dimen/space_size_2"/>
+    </LinearLayout>
 </LinearLayout>
+</layout>

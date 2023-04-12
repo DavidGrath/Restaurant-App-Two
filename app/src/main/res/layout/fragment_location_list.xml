@@ -3,34 +3,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".onboarding.LocationListFragment">
+    android:theme="@style/Theme.RestaurantAppTwo.WhiteToolbarActivity"
+    tools:context=".location.LocationListFragment">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary">
-    <Toolbar
+        android:background="@color/light_grey">
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_location_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:title="@string/location_list_fragment_title"/>
-        <EditText
+        android:elevation="0dp"
+        app:title="@string/location_list_fragment_title"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_search_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:drawableStart="@drawable/ic_baseline_search_24"/>
+            android:layout_margin="@dimen/space_size_3"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:startIconDrawable="@drawable/ic_baseline_search_24"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="false"
+            app:endIconMode="clear_text">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edittext_search_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your location"
+                android:lines="1"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                android:paddingTop="@dimen/space_size_2"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/space_size_3">
     <TextView
         android:id="@+id/textview_location_list_current_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/TextContent"
         android:text="@string/location_list_fragment_use_current_location_prompt"
-        android:drawableStart="@drawable/ic_baseline_near_me_24" />
+        android:textColor="?attr/colorPrimary"
+        android:gravity="center_vertical"
+        android:drawableStart="@drawable/ic_baseline_near_me_24"
+        android:drawableTint="?attr/colorPrimary"
+        android:drawablePadding="@dimen/space_size_2"
+        android:layout_marginTop="@dimen/space_size_2"
+        android:layout_marginBottom="@dimen/space_size_2" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextTitleSmaller"
+            android:text="Choose your city"
+            android:layout_marginTop="@dimen/space_size_2"
+            android:layout_marginBottom="@dimen/space_size_2" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_location_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/recyclerview_location_select_item"/>
+    </LinearLayout>
 </LinearLayout>

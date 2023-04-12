@@ -3,9 +3,7 @@
     <item>
         <color android:color="@color/pale_green"/>
     </item>
-    <item>
-        <bitmap android:gravity="center"
-            android:tint="@color/white"
-            android:src="@drawable/dae_alright_logo"/>
+    <item android:gravity="center"
+        android:drawable="@drawable/ic_dae_alright_logo_vector">
     </item>
 </layer-list>

@@ -5,19 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:theme="@style/Theme.RestaurantAppTwo.WhiteToolbarActivity"
     tools:context=".restaurants.search.SortFilterActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_sort_filter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        app:menu="@menu/menu_sort_filter"
+        app:title="Filter"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:padding="16dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,28 +31,40 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sort By"/>
+            android:text="Sort By"
+            style="@style/TextTitleSmaller"
+            android:textAllCaps="true"
+            android:layout_marginTop="@dimen/space_size_2"
+            android:layout_marginBottom="@dimen/space_size_2"/>
         <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <RadioButton
-                android:layout_width="wrap_content"
+            android:id="@+id/radiogroup_sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/CheckGroup">
+            <CheckedTextView
+                android:id="@+id/radiobutton_sort_group_top_rated"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Top Rated"/>
-            <RadioButton
-                android:layout_width="wrap_content"
+                android:text="Top Rated"
+                android:textColor="@drawable/checked_text_view_selector"/>
+            <CheckedTextView
+                android:id="@+id/radiobutton_sort_group_nearest_me"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nearest Me"/>
-            <RadioButton
-                android:layout_width="wrap_content"
+            <CheckedTextView
+                android:id="@+id/radiobutton_sort_group_cost_asc"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cost Ascending"/>
-            <RadioButton
-                android:layout_width="wrap_content"
+            <CheckedTextView
+                android:id="@+id/radiobutton_sort_group_cost_desc"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cost Descending"/>
-            <RadioButton
-                android:layout_width="wrap_content"
+            <CheckedTextView
+                android:id="@+id/radiobutton_sort_group_most_popular"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Most Popular"/>
         </RadioGroup>
@@ -54,21 +72,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:theme="@style/CheckGroup">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Filter"/>
-        <CheckBox
-            android:layout_width="wrap_content"
+            style="@style/TextTitleSmaller"
+            android:textAllCaps="true"
+            android:text="Filter"
+            android:layout_marginTop="@dimen/space_size_2"
+            android:layout_marginBottom="@dimen/space_size_2"/>
+        <CheckedTextView
+            android:id="@+id/checkbox_filter_open_now"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Open Now"/>
-        <CheckBox
-            android:layout_width="wrap_content"
+        <CheckedTextView
+            android:id="@+id/checkbox_filter_credit_cards"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Credit Cards"/>
-        <CheckBox
-            android:layout_width="wrap_content"
+        <CheckedTextView
+            android:id="@+id/checkbox_filter_alcohol_served"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Alcohol Served"/>
     </LinearLayout>
@@ -79,15 +105,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Additional Filters"/>
-        <SeekBar
+            android:text="Additional Filters"
+            style="@style/TextTitleSmaller"
+            android:textAllCaps="true"
+            android:layout_marginTop="@dimen/space_size_2"
+            android:layout_marginBottom="@dimen/space_size_2"/>
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/range_slider_filter_price_range"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:minSeparation="16dp"
+            android:valueFrom="100.0"
+            android:valueTo="10000.0"
+            android:stepSize="50.0" />
     </LinearLayout>
     </LinearLayout>
+    </ScrollView>
     <Button
         android:id="@+id/button_sort_filter_apply"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Apply"/>
+        android:text="Apply"
+        android:layout_margin="@dimen/space_size_3"/>
 </LinearLayout>
