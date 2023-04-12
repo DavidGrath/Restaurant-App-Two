@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.davidgrath.restaurantapptwo.Constants
 import com.davidgrath.restaurantapptwo.R
 import com.davidgrath.restaurantapptwo.databinding.RecyclerviewRestaurantDetailsReviewBinding
 import com.davidgrath.restaurantapptwo.restaurants.entities.ReviewUI
@@ -24,7 +25,7 @@ class RestaurantReviewRecyclerAdapter(val reviews : List<ReviewUI>) : RecyclerVi
             textviewRestaurantDetailsReviewItemRelativeTime.text = review.relativeTime
             ratingBarRestaurantDetailsReviewItem.rating = review.rating.toFloat()
             Glide.with(holder.itemView.context)
-                .load(com.davidgrath.restaurantapptwo.Constants.FOOD_IMAGE_IDS.random())
+                .load(Constants.PEOPLE_IMAGE_IDS.random())
                 .circleCrop()
                 .placeholder(R.drawable.simple_image_placeholder)
                 .fallback(R.drawable.simple_image_placeholder)

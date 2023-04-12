@@ -1,5 +1,6 @@
 package com.davidgrath.restaurantapptwo.meals
 
+import android.content.res.Resources.Theme
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
@@ -7,7 +8,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.ImageViewTarget
@@ -54,6 +57,9 @@ class MealDetailsActivity : AppCompatActivity(), View.OnClickListener {
         adapter = MealExtrasRecyclerAdapter(mealDetails.extras.toList())
         val layoutManager = LinearLayoutManager(this)
         binding.listviewMealDetailsExtras.adapter = adapter
+        val dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+        dividerItemDecoration.setDrawable(ResourcesCompat.getDrawable(resources, R.drawable.simple_divider, null)!!)
+        binding.listviewMealDetailsExtras.addItemDecoration(dividerItemDecoration)
         binding.listviewMealDetailsExtras.layoutManager = layoutManager
         binding.buttonMealDetailsAddQuantity.setOnClickListener(this)
         binding.buttonMealDetailsReduceQuantity.setOnClickListener(this)

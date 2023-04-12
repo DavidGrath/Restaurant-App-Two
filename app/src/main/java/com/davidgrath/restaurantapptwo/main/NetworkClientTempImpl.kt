@@ -18,11 +18,11 @@ class NetworkClientTempImpl : NetworkClient {
 
     val time = Date().time
     private val sampleReviewData = listOf(
-        ReviewData("John Jones", null, 4, "My niece, Megan Jones, recommended this place to me. I love what she introduced me to. The only problem I have, though, is the open barbecue fires outside", time),
-        ReviewData("Mary Sue", null, 1, "I'm the definition of perfection. You're not. Deal with it", time),
-        ReviewData("Bruce Wayne", null, 4, "Buy BATCOIN", time),
-        ReviewData("Maui Hawaii", null, 5, "Thank you", time),
-        ReviewData("Dennis Menace", null, 3, "Hopefully I don't get a reboot. No old cartoon is safe nowadays.", time),
+        ReviewData("John Doe", null, 4, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan purus ut placerat lobortis.", time),
+        ReviewData("John Doe", null, 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan purus ut placerat lobortis.", time),
+        ReviewData("John Doe", null, 4, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan purus ut placerat lobortis.", time),
+        ReviewData("John Doe", null, 5, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan purus ut placerat lobortis.", time),
+        ReviewData("John Doe", null, 3, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan purus ut placerat lobortis.", time),
     )
     private val mealExtras = mapOf<String, Int>(
         "Sauce" to 150,
@@ -72,7 +72,7 @@ class NetworkClientTempImpl : NetworkClient {
     //TODO For now all methods return Single<String>
     override fun loginWithUsernameAndPassword(username: String, password: String): Single<LoginResponseNetwork> {
         val random = Random.nextInt(6)
-        if (random == 0) {
+        if(random == 0) {
             return Single.error<LoginResponseNetwork>(Exception("Error. Password Invalid!"))
                 .delay(3, TimeUnit.SECONDS, true)
         } else {

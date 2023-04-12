@@ -22,6 +22,9 @@ class CheckoutActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
+        binding.toolbarCheckout.setNavigationOnClickListener {
+            finish()
+        }
         setContentView(binding.root)
         window.statusBarColor = resources.getColor(R.color.light_grey)
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true

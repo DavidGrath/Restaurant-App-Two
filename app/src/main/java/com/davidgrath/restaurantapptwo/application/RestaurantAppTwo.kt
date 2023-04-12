@@ -32,8 +32,6 @@ class RestaurantAppTwo : Application() {
         authRepository =
             AuthRepository(networkClient, storageHelper)
         locationHelper = LocationHelperImpl(this)
-        val preferences = getSharedPreferences(Constants.APPLICATION_NAME, MODE_PRIVATE)
-        preferences.edit().clear().commit()
     }
 
     fun getCartUseCase() : CartUseCase {

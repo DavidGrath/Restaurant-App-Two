@@ -51,14 +51,14 @@
                 android:text="Richard Williams"
                 style="@style/TextTitleSmaller"
                 android:layout_marginStart="@dimen/space_size_2"/>
+<!--                    android:background="@drawable/simple_color_background"-->
+<!--                    android:backgroundTint="#00FF00"-->
             <ImageView
-                android:id="@+id/imageview_user_verified"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@drawable/ic_baseline_done_24"
-                android:background="@drawable/simple_color_background"
-                android:backgroundTint="#0F0"
-                app:tint="@color/white"
+                android:id="@+id/image_view_user_verified"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_check_circle_outline_24"
+                app:tint="@color/grey"
                 android:visibility="visible"
                 android:padding="2dp"
                 android:layout_gravity="center_vertical"
@@ -170,6 +170,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/profile_fragment_referral_description"
                         style="@style/TextContent"
+                        android:textColor="?attr/colorPrimary"
                         android:layout_marginTop="@dimen/space_size_2"/>
                 </LinearLayout>
                 <ImageView

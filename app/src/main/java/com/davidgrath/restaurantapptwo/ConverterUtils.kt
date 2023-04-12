@@ -8,7 +8,7 @@ import java.util.*
 class ConverterUtils {
     companion object {
         fun restaurantDetailsDataToRestaurantSummaryUI(restaurant : RestaurantDetailsData) : RestaurantSummaryUI {
-            val dateFormat = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT, Locale.getDefault())
+            val dateFormat = SimpleDateFormat("hh:mm a")
             dateFormat.timeZone = TimeZone.getTimeZone("GMT")
             val date = Date()
             date.time = restaurant.openTime * 60 * 1_000L

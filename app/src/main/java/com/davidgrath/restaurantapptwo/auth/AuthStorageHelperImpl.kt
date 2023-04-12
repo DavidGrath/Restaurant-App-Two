@@ -104,8 +104,6 @@ class AuthStorageHelperImpl(private val context: Context) : AuthStorageHelper {
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         )
         preferences.registerOnSharedPreferenceChangeListener(listener)
-        //TODO Remove this line
-        preferences.edit().clear().commit()
 
         usernameBehaviorSubject.onNext(preferences.getString("username", ""))
         emailBehaviorSubject.onNext(preferences.getString("email", ""))

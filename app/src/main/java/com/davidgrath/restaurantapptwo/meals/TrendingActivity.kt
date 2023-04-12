@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.davidgrath.restaurantapptwo.R
 import com.davidgrath.restaurantapptwo.databinding.ActivityTrendingBinding
 import com.davidgrath.restaurantapptwo.main.AsyncResult
 import com.davidgrath.restaurantapptwo.main.EmptyAdapter
@@ -32,7 +33,8 @@ class TrendingActivity : AppCompatActivity() {
                 TrendingViewModelFactory((application as com.davidgrath.restaurantapptwo.application.RestaurantAppTwo).getMealUseCase()))
                 .get(TrendingViewModel::class.java)
 
-        val layoutManager = GridLayoutManager(this, 2)
+        val columnCount = resources.getInteger(R.integer.column_count)
+        val layoutManager = GridLayoutManager(this, columnCount)
 
         adapter = TrendingMealRecyclerAdapter(emptyList(), object : TrendingMealRecyclerAdapter.ItemClickListener {
             override fun onItemClicked() {

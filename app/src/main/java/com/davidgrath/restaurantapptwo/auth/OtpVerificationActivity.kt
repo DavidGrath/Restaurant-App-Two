@@ -18,8 +18,11 @@ class OtpVerificationActivity : AppCompatActivity(), OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityOtpVerificationBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(OtpVerificationViewModel::class.java)
+        binding.toolbarOtpVerification.setNavigationOnClickListener {
+            finish()
+        }
         binding.otpEditTextOtpVerification.setOnCompleteListener {
-            //Runtime exception if this isn't set
+            //Runtime exception will be thrown if this listener isn't set
         }
         binding.otpEditTextOtpVerification.addTextChangedListener {
             viewModel.otp = it!!.toString()
